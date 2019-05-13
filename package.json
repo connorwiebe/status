@@ -1,0 +1,41 @@
+{
+  "name": "status",
+  "version": "1.0.0",
+  "description": "Create Reddit alerts.",
+  "main": "app.js",
+  "author": "Connor Wiebe",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "start-dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "NODE_ENV=development nodemon -i public --trace-warnings app.js",
+    "client": "npm run start --prefix client",
+    "heroku-postbuild": "cd client && npm install --dev && npm run build"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "bluebird": "^3.5.1",
+    "compression": "^1.7.2",
+    "connect-redis": "^3.3.3",
+    "crypto-alphanumeric-id": "^1.0.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-promise-router": "^3.0.3",
+    "express-session": "^1.15.6",
+    "helmet": "^3.12.1",
+    "is-email": "^1.0.0",
+    "is-json": "^2.0.1",
+    "knex": "^0.14.6",
+    "match-words": "^1.0.0",
+    "moment": "^2.22.2",
+    "npm": "^6.1.0",
+    "pg": "^7.4.3",
+    "redis": "^2.8.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0"
+  }
+}
